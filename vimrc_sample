@@ -1,0 +1,77 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+syntax on
+filetype plugin on
+
+set smartindent
+set autoindent
+set tabstop=4
+"set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+set number
+set ruler
+
+set statusline+=%f         " Path to the file
+set statusline+=\ -\      " Separator
+set statusline+=FileType: " Label
+set statusline+=%y        " Filetype of the file
+
+set statusline+=\ \      " Separator
+set statusline+=%4l    " Current line
+set statusline+=/    " Separator
+set statusline+=%4L   " Total lines
+set statusline+=\ ,col:\ %c
+
+set cursorline
+
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+set list
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+augroup ProjectDrawer
+ autocmd!
+"   autocmd VimEnter * :Vexplore | wincmd p
+augroup END
+
+"nnoremap <C-D> :Vexplore 15<CR> |  wincmd p
+
+set hlsearch
+hi Search ctermbg=LightGray
+hi Search ctermfg=Red
+
+" fix backspace key not working
+set backspace=indent,eol,start
+nnoremap <C-n> :NERDTree<CR>
+
+"let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+let NERDTreeMapOpenInTab='<ENTER>'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+
+"call plug#begin()
+"Plug 'terryma/vim-multiple-cursors'
+"call plug#end()
+
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-D>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-D>'           " replace visual C-n
+
+"coppoy to clipboard
+vmap <C-c> "+y 
