@@ -12,5 +12,8 @@ sleep $DELAY
 ### Install syntastic as a Pathogen bundle
 cd ~/.vim/bundle && git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 
+### install nerdtree
+cd ~/.vim/bundle && git clone https://github.com/jistr/vim-nerdtree-tabs.git
+
 
 echo "Quit vim and start it back up to reload it, then type: ':Helptags'"
