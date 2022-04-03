@@ -59,6 +59,13 @@ sleep $DELAY
 ibus retstart
 sleep $DELAY
 
+### install ctags (tagslist)
+sudo apt-get install -y exuberant-ctags
+
+### copy file .bashrc  and .vimrc
+cp ./bashrc_sample "/home/$USER/.bashrc"
+cp ./vimrc_sample "/home/$USER/.vimrc"
+
 ### install and config docker from Official Docker Repository
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -78,17 +85,10 @@ su - ${USER}
 ### Confirm that your user is now added to the docker group by typing:
 groups
 
-### copy file .bashrc  and .vimrc
-cp ./bashrc_sample "/home/$USER/.bashrc"
-cp ./vimrc_sample "/home/$USER/.vimrc"
-
 ### install tools search ####
 echo "### install tools search ####"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-
-### install ctags (tagslist)
-sudo apt-get install exuberant-ctags
 
 ### sync environment ###
 echo "### sync environment ###"
