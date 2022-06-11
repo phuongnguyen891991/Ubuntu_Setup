@@ -32,6 +32,11 @@ echo "### install git ###"
 sudo apt-get install -y git
 sleep $DELAY
 
+### install git ###
+echo "### install cmake ###"
+sudo apt-get install -y cmake
+sleep $DELAY
+
 ### install and config tmux ###
 echo "### install and config tmux ###"
 sudo apt-get install -y tmux
